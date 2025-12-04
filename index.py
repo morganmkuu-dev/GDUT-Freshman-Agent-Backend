@@ -12,8 +12,8 @@ DB_CONFIG = {
     # 如果函数和数据库不在同一个 VPC，这里是连不上的
     "host": "rm-cn-em94jtxe50001t.rwlb.rds.aliyuncs.com", 
     "port": 3306,
-    "user": "testuser",
-    "password": "AbC8706111@",
+    "user": "xxx",        //自己的用户名
+    "password": "xxx",    //自己的密码
     "database": "gdut_agent",
     "charset": "utf8mb4",
     "cursorclass": pymysql.cursors.DictCursor
