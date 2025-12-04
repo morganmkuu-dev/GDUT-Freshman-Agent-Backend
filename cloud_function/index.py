@@ -12,8 +12,8 @@ DB_CONFIG = {
     # 如果函数和数据库不在同一个 VPC，这里是连不上的
     "host": "rm-cn-em94jtxe50001t.rwlb.rds.aliyuncs.com", 
     "port": 3306,
-    "user": "xxx",        //自己的用户名
-    "password": "xxx",    //自己的密码
+    "user": "xxx",        #自己的用户名
+    "password": "xxx",    #自己的密码
     "database": "gdut_agent",
     "charset": "utf8mb4",
     "cursorclass": pymysql.cursors.DictCursor
@@ -23,9 +23,6 @@ DB_CONFIG = {
 @app.route('/', methods=['POST', 'GET'])
 @app.route('/record', methods=['POST', 'GET'])
 def home():
-    # 这是一个心跳检测，用于浏览器直接访问测试
-    if request.method == 'GET':
-        return jsonify({"status": "success", "message": "云函数服务正在运行中..."})
     
     # 下面是处理 POST 请求的逻辑
     try:
@@ -53,6 +50,6 @@ def home():
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
-# ⚠️ 关键：监听 0.0.0.0 和 9000 端口，对应你的配置截图
+# 监听 0.0.0.0 和 9000 端口
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9000)
