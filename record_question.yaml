@@ -1,0 +1,44 @@
+openapi: 3.0.1
+info:
+  title: RecordQuestion
+  description: 记录智能体无法回答的用户问题到后端数据库。
+  version: 1.0.0
+servers:
+  # 注意：实际使用时请替换为阿里云 FC 的公网访问地址
+  - url: https://gdut-backend-xxxx.cn-shenzhen.fcapp.run
+paths:
+  /:
+    post:
+      operationId: record
+      summary: 记录遗漏问题
+      description: 当知识库和联网搜索均无法解决用户问题时调用。
+      requestBody:
+        description: 问题详情
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - question
+              properties:
+                question:
+                  type: string
+                  description: 用户提出的原始问题内容
+                user_id:
+                  type: string
+                  description: 用户的身份标识（如姓名）
+      responses:
+        "200":
+          description: 请求成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: 操作状态 (success/forbidden/error)
+                  message:
+                    type: string
+                    description: 返回给用户的提示信息
