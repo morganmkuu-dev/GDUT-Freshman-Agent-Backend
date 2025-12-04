@@ -4,8 +4,8 @@ info:
   description: 记录智能体无法回答的用户问题到后端数据库。
   version: 1.0.0
 servers:
-  # 注意：实际使用时请替换为自己阿里云 FC 的公网访问地址
-  - url: https://gdut-backend-xxxx.cn-shenzhen.fcapp.run     //由于不能暴露自己的访问地址
+  # 注意：由于不能暴露自己的访问地址,实际使用时请替换为自己阿里云 FC 的公网访问地址
+  - url: https://gdut-backend-xxxx.cn-shenzhen.fcapp.run
 paths:
   /:
     post:
