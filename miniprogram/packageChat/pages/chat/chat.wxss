@@ -1,0 +1,214 @@
+/* pages/chat/chat.wxss */
+
+/* 1. 全局容器 */
+page {
+  background-color: #F7F7F7;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+/* 2. 聊天列表区域 */
+.chat-list {
+  flex: 1;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 消息项容器 - 基础样式 */
+.msg-item {
+  display: flex;
+  margin-bottom: 40rpx;
+  width: 100%;
+  align-items: flex-start;
+}
+
+/* --- 用户消息 (右侧) --- */
+.user-msg {
+  /* 🔥 方案A：不反转，直接靠右 (这是最稳的写法) */
+  flex-direction: row; 
+  justify-content: flex-end; /* 整体靠右 */
+}
+
+/* 用户头像样式 (特定) */
+.user-msg .avatar {
+  margin-left: 20rpx; /* 头像左边留白 */
+  margin-right: 0;
+  order: 2; /* 强制让头像排在气泡后面 (右边) */
+}
+
+/* 用户气泡容器样式 */
+.user-msg .msg-content {
+  align-items: flex-end; /* 气泡内部文本/图片靠右 */
+  margin-right: 0;
+  margin-left: 80rpx;    /* 左侧留白，防止太宽 */
+  order: 1; /* 强制让气泡排在头像前面 (左边) */
+}
+
+/* --- AI 消息 (左侧) --- */
+.ai-msg {
+  flex-direction: row;
+  justify-content: flex-start; /* 整体靠左 */
+}
+
+.ai-msg .avatar {
+  margin-right: 20rpx;
+  margin-left: 0;
+}
+
+.ai-msg .msg-content {
+  align-items: flex-start;
+  margin-left: 0;
+  margin-right: 80rpx;
+}
+
+/* 头像通用 */
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%; /* 圆形 */
+  flex-shrink: 0;       
+  background-color: #fff;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.1);
+}
+
+/* 内容区域通用 */
+.msg-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+/* 3. 气泡核心样式 */
+.bubble {
+  padding: 22rpx 28rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  line-height: 1.6;
+  position: relative;
+  letter-spacing: 1rpx;
+  
+  word-wrap: break-word;
+  word-break: break-all; 
+  white-space: pre-wrap; 
+  
+  box-shadow: 0 2rpx 4rpx rgba(0,0,0,0.05);
+}
+
+/* 用户气泡颜色 */
+.user-bubble {
+  background-color: #0052D9; 
+  color: #fff;
+  border-top-right-radius: 4rpx; 
+}
+
+/* AI 气泡颜色 */
+.ai-bubble {
+  background-color: #ffffff;
+  color: #333;
+  border: 1rpx solid #ebebeb; 
+  border-top-left-radius: 4rpx;
+}
+
+/* 图片消息样式 */
+.bubble-img {
+  max-width: 320rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #eee;
+}
+
+/* 4. 底部输入区 */
+.input-area {
+  background: #fdfdfd;
+  border-top: 1rpx solid #ececec;
+  padding: 20rpx 30rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+}
+
+.icon-btn {
+  padding: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-img {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.input-box {
+  flex: 1;
+  background: #ffffff;
+  height: 80rpx;
+  border-radius: 10rpx; 
+  padding: 0 24rpx;
+  font-size: 30rpx;
+  margin: 0 20rpx;
+  caret-color: #0052D9; 
+}
+
+.input-ph {
+  color: #cccccc;
+}
+
+.send-btn {
+  width: 120rpx !important; 
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color: #0052D9; 
+  color: white;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-btn[disabled] {
+  background-color: #E7E7E7 !important;
+  color: #999 !important;
+}
+
+/* 5. 底部占位符 */
+#bottom-anchor {
+  height: 10rpx;
+  width: 100%;
+}
+
+/* 6. 打字机动画点 */
+.typing-dots {
+  display: inline-block;
+  margin-left: 8rpx;
+  vertical-align: middle;
+}
+.dot {
+  display: inline-block;
+  width: 8rpx;
+  height: 8rpx;
+  margin-right: 6rpx;
+  background: #bbb;
+  border-radius: 50%;
+  animation: typing 1.4s infinite ease-in-out both;
+}
+.dot:nth-child(1) { animation-delay: -0.32s; }
+.dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.6; }
+  40% { transform: scale(1.2); opacity: 1; }
+}

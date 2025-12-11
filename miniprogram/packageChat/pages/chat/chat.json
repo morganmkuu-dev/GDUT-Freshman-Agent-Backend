@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "广工迎新助手",
+  "usingComponents": {
+    "cloud-tip-modal": "/components/cloudTipModal/index"
+  }
+}

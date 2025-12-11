@@ -1,0 +1,15 @@
+<view class="welcome-container">
+  <image class="bg-image" src="/images/cover_bg.png" mode="aspectFill"></image>
+  <view class="mask"></view> <view class="content-box">
+    <view class="logo-area fade-in-down">
+      <image class="school-logo" src="/images/avatar_ai.png" mode="aspectFit"></image>
+    </view>
+    
+    <view class="text-area fade-in-up">
+      <text class="title">你好，新同学</text>
+      <text class="subtitle">欢迎使用广工迎新助手</text>
+    </view>
+
+    <button class="start-btn pulse" bindtap="startChat">开启校园之旅</button>
+  </view>
+</view>

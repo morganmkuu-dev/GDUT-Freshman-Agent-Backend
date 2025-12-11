@@ -1,0 +1,49 @@
+<view class="container">
+  <scroll-view class="chat-list" scroll-y scroll-into-view="{{scrollId}}" scroll-with-animation>
+    <block wx:for="{{msgList}}" wx:key="index">
+      
+      <view class="msg-item user-msg" wx:if="{{item.role === 'user'}}">
+        <view class="msg-content">
+          <view class="bubble user-bubble" wx:if="{{item.type === 'text'}}">{{item.content}}</view>
+          <image class="bubble-img" wx:if="{{item.type === 'image'}}" src="{{item.content}}" mode="widthFix" bindtap="previewImg" data-src="{{item.content}}"></image>
+        </view>
+        <image class="avatar" src="/images/avatar_user.png"></image>
+      </view>
+
+      <view class="msg-item ai-msg" wx:else>
+        <image class="avatar" src="/images/avatar_ai.png"></image>
+        <view class="msg-content">
+          <view class="bubble ai-bubble">
+            <text user-select>{{item.content}}</text>
+            <view wx:if="{{item.loading}}" class="typing-dots">
+              <text class="dot"></text><text class="dot"></text><text class="dot"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </block>
+    <view id="bottom-anchor" style="height: 20rpx;"></view>
+  </scroll-view>
+
+  <view class="input-area">
+    
+    <view class="icon-btn" bindtap="showClearMenu" style="margin-right: 10rpx;">
+      <image src="/images/icon_setting.png" class="icon-img"></image>
+    </view>
+
+    <view class="icon-btn" bindtap="chooseImage">
+      <image src="/images/icon_plus.png" class="icon-img"></image>
+    </view>
+    
+    <input class="input-box" 
+           placeholder="问问广工迎新助手..." 
+           placeholder-class="input-ph"
+           value="{{inputValue}}" 
+           bindinput="onInput" 
+           confirm-type="send" 
+           bindconfirm="sendMsg" />
+           
+    <button class="send-btn" bindtap="sendMsg" disabled="{{isRequesting}}">发送</button>
+  </view>
+</view>

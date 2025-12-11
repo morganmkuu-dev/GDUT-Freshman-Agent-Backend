@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/welcome/welcome"
+  ],
+  "subPackages": [
+    {
+      "root": "packageChat",
+      "pages": [
+        "pages/chat/chat"
+      ],
+      "name": "ai_chat"
+    }
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "广工迎新助手"
+  },
+  "sitemapLocation": "sitemap.json"
+}
