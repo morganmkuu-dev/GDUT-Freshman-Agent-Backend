@@ -2,6 +2,7 @@
 
 ## 📖 项目简介
 1、为了突破平台原生能力的限制，本项目实现了**基于 Serverless 的数据持久化存储**和**自定义插件扩展**。
+
 2、为了让智能体能够触达更广泛的用户群体并融入私域流量，本项目实现了智能体的微信小程序原生部署。通过对接智能体平台 API，在微信生态内提供低延迟、流式输出的 AI 对话体验，打破了网页端的场景限制。
 
 ## 🚀 二开功能亮点
@@ -22,6 +23,7 @@
 * **Tool**: DataGrip
 
 2、**原生级 AI 对话体验**：
+
 Frontend: 微信小程序原生 (WXML / WXSS / JavaScript)
 • Rendering: Towxml (Markdown 解析库)
 • Network: wx.request (支持 enableChunked: true 实现流式读取)
