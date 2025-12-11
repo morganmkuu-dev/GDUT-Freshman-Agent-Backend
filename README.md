@@ -23,12 +23,11 @@
 * **Tool**: DataGrip
 
 2、**原生级 AI 对话体验**：
-
-Frontend: 微信小程序原生 (WXML / WXSS / JavaScript)
-• Rendering: Towxml (Markdown 解析库)
-• Network: wx.request (支持 enableChunked: true 实现流式读取)
-• IDE: 微信开发者工具 (WeChat DevTools)
-• API Protocol: Server-Sent Events (SSE) / HTTPS
+* **Frontend**: 微信小程序原生 (WXML / WXSS / JavaScript)
+* **Rendering**: Towxml (Markdown 解析库)
+* **Network**: wx.request (支持 enableChunked: true 实现流式读取)
+* **IDE**: 微信开发者工具 (WeChat DevTools)
+* **API Protocol**: Server-Sent Events (SSE) / HTTPS
 
 ## 📂 目录说明
 * `/cloud_function`: 云函数核心业务逻辑代码。
