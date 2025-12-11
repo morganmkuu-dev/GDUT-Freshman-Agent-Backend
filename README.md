@@ -30,4 +30,4 @@ Frontend: 微信小程序原生 (WXML / WXSS / JavaScript)
 * `/cloud_function`: 云函数核心业务逻辑代码。
 * `/plugins`: 智能体自定义工具的 OpenAPI 定义文件。
 * `/app`: 微信小程序后端代码。
-* * `/miniprogram`: 微信小程序部署代码。
+* `/miniprogram`: 微信小程序部署代码。
