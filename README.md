@@ -8,6 +8,7 @@
 1、**未知问题自动捕获系统**：
 * **架构**：Agent -> Custom Plugin -> Aliyun FC (Python Flask) -> RDS MySQL。
 * **功能**：当智能体无法回答用户问题时，自动触发兜底逻辑，将问题实时写入云数据库，形成反馈闭环。
+
 2、**原生级 AI 对话体验**：
 * **架构**：User -> WeChat Mini Program -> Agent API (SSE Streaming) -> LLM。
 * **功能**：实现在微信小程序上与智能体进行问答交互。
@@ -19,6 +20,7 @@
 * **Protocol**: OpenAPI / Swagger
 * **Framework**: Flask, PyMySQL
 * **Tool**: DataGrip
+
 2、**原生级 AI 对话体验**：
 Frontend: 微信小程序原生 (WXML / WXSS / JavaScript)
 • Rendering: Towxml (Markdown 解析库)
